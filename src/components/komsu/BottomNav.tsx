@@ -1,11 +1,10 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 
-const items: { to: "/" | "/ara" | "/paylas" | "/dogrulama" | "/profil"; icon: string; label: string; center?: boolean }[] = [
+const items: { to: "/" | "/ara" | "/paylas" | "/profil"; icon: string; label: string; center?: boolean }[] = [
   { to: "/", icon: "🏠", label: "Pano" },
   { to: "/ara", icon: "🔍", label: "Ara" },
   { to: "/paylas", icon: "➕", label: "Paylaş", center: true },
-  { to: "/dogrulama", icon: "🛡️", label: "Doğrula" },
   { to: "/profil", icon: "👤", label: "Profil" },
 ];
 

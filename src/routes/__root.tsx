@@ -134,6 +134,19 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+
+  // İlk açılışta mahalle beyanı (onboarding) ekranına yönlendir.
+  useEffect(() => {
+    if (router.state.location.pathname === "/kayit") return;
+    try {
+      if (!localStorage.getItem("komsu:onboarding")) {
+        router.navigate({ to: "/kayit", replace: true });
+      }
+    } catch {
+      /* depolama kapalıysa yönlendirme yapma */
+    }
+  }, [router]);
 
   return (
     <QueryClientProvider client={queryClient}>
