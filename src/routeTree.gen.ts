@@ -10,11 +10,19 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AraRouteImport } from './routes/ara'
 import { Route as DogrulamaRouteImport } from './routes/dogrulama'
+import { Route as PaylasRouteImport } from './routes/paylas'
+import { Route as ProfilRouteImport } from './routes/profil'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AraRoute = AraRouteImport.update({
+  id: '/ara',
+  path: '/ara',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DogrulamaRoute = DogrulamaRouteImport.update({
@@ -22,31 +30,53 @@ const DogrulamaRoute = DogrulamaRouteImport.update({
   path: '/dogrulama',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PaylasRoute = PaylasRouteImport.update({
+  id: '/paylas',
+  path: '/paylas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfilRoute = ProfilRouteImport.update({
+  id: '/profil',
+  path: '/profil',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ara': typeof AraRoute
   '/dogrulama': typeof DogrulamaRoute
+  '/paylas': typeof PaylasRoute
+  '/profil': typeof ProfilRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ara': typeof AraRoute
   '/dogrulama': typeof DogrulamaRoute
+  '/paylas': typeof PaylasRoute
+  '/profil': typeof ProfilRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ara': typeof AraRoute
   '/dogrulama': typeof DogrulamaRoute
+  '/paylas': typeof PaylasRoute
+  '/profil': typeof ProfilRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dogrulama'
+  fullPaths: '/' | '/ara' | '/dogrulama' | '/paylas' | '/profil'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dogrulama'
-  id: '__root__' | '/' | '/dogrulama'
+  to: '/' | '/ara' | '/dogrulama' | '/paylas' | '/profil'
+  id: '__root__' | '/' | '/ara' | '/dogrulama' | '/paylas' | '/profil'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AraRoute: typeof AraRoute
   DogrulamaRoute: typeof DogrulamaRoute
+  PaylasRoute: typeof PaylasRoute
+  ProfilRoute: typeof ProfilRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -58,6 +88,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ara': {
+      id: '/ara'
+      path: '/ara'
+      fullPath: '/ara'
+      preLoaderRoute: typeof AraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dogrulama': {
       id: '/dogrulama'
       path: '/dogrulama'
@@ -65,12 +102,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DogrulamaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/paylas': {
+      id: '/paylas'
+      path: '/paylas'
+      fullPath: '/paylas'
+      preLoaderRoute: typeof PaylasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profil': {
+      id: '/profil'
+      path: '/profil'
+      fullPath: '/profil'
+      preLoaderRoute: typeof ProfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AraRoute: AraRoute,
   DogrulamaRoute: DogrulamaRoute,
+  PaylasRoute: PaylasRoute,
+  ProfilRoute: ProfilRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
