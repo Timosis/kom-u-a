@@ -11,7 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AraRouteImport } from './routes/ara'
-import { Route as DogrulamaRouteImport } from './routes/dogrulama'
+import { Route as KayitRouteImport } from './routes/kayit'
 import { Route as PaylasRouteImport } from './routes/paylas'
 import { Route as ProfilRouteImport } from './routes/profil'
 
@@ -25,9 +25,9 @@ const AraRoute = AraRouteImport.update({
   path: '/ara',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DogrulamaRoute = DogrulamaRouteImport.update({
-  id: '/dogrulama',
-  path: '/dogrulama',
+const KayitRoute = KayitRouteImport.update({
+  id: '/kayit',
+  path: '/kayit',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PaylasRoute = PaylasRouteImport.update({
@@ -44,14 +44,14 @@ const ProfilRoute = ProfilRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/ara': typeof AraRoute
-  '/dogrulama': typeof DogrulamaRoute
+  '/kayit': typeof KayitRoute
   '/paylas': typeof PaylasRoute
   '/profil': typeof ProfilRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/ara': typeof AraRoute
-  '/dogrulama': typeof DogrulamaRoute
+  '/kayit': typeof KayitRoute
   '/paylas': typeof PaylasRoute
   '/profil': typeof ProfilRoute
 }
@@ -59,22 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/ara': typeof AraRoute
-  '/dogrulama': typeof DogrulamaRoute
+  '/kayit': typeof KayitRoute
   '/paylas': typeof PaylasRoute
   '/profil': typeof ProfilRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/ara' | '/dogrulama' | '/paylas' | '/profil'
+  fullPaths: '/' | '/ara' | '/kayit' | '/paylas' | '/profil'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/ara' | '/dogrulama' | '/paylas' | '/profil'
-  id: '__root__' | '/' | '/ara' | '/dogrulama' | '/paylas' | '/profil'
+  to: '/' | '/ara' | '/kayit' | '/paylas' | '/profil'
+  id: '__root__' | '/' | '/ara' | '/kayit' | '/paylas' | '/profil'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AraRoute: typeof AraRoute
-  DogrulamaRoute: typeof DogrulamaRoute
+  KayitRoute: typeof KayitRoute
   PaylasRoute: typeof PaylasRoute
   ProfilRoute: typeof ProfilRoute
 }
@@ -95,11 +95,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AraRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/dogrulama': {
-      id: '/dogrulama'
-      path: '/dogrulama'
-      fullPath: '/dogrulama'
-      preLoaderRoute: typeof DogrulamaRouteImport
+    '/kayit': {
+      id: '/kayit'
+      path: '/kayit'
+      fullPath: '/kayit'
+      preLoaderRoute: typeof KayitRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/paylas': {
@@ -122,7 +122,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AraRoute: AraRoute,
-  DogrulamaRoute: DogrulamaRoute,
+  KayitRoute: KayitRoute,
   PaylasRoute: PaylasRoute,
   ProfilRoute: ProfilRoute,
 }
