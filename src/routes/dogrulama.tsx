@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { HelpFab, TopBar } from "@/components/komsu/TopBar";
+import { BottomNav } from "@/components/komsu/BottomNav";
 import { Button } from "@/components/komsu/primitives";
 import { cn } from "@/lib/utils";
 
@@ -74,7 +75,7 @@ function Verification() {
   return (
     <div className="min-h-screen bg-background">
       <TopBar />
-      <main className="mx-auto max-w-[720px] px-4 pt-6 pb-24">
+      <main className="mx-auto max-w-[480px] px-4 pt-6 pb-32">
         <p className="text-sm font-medium text-muted-foreground">
           Adım {step + 1} / {total}
         </p>
@@ -94,14 +95,14 @@ function Verification() {
           ))}
         </div>
 
-        <section className="mt-6 rounded-2xl border border-border bg-card p-6">
-          <h1 className="font-display text-3xl leading-tight font-bold text-card-foreground">
+        <section className="mt-6 rounded-2xl border border-border bg-card p-5">
+          <h1 className="font-display text-2xl leading-tight font-bold text-card-foreground">
             {current.title}
           </h1>
           <p className="mt-3 text-lg leading-relaxed text-muted-foreground">{current.body}</p>
 
           {step === 2 && (
-            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            <div className="mt-5 grid gap-3">
               {methods.map((m) => (
                 <button
                   key={m.title}
@@ -161,6 +162,7 @@ function Verification() {
         </p>
       </main>
       <HelpFab />
+      <BottomNav />
     </div>
   );
 }

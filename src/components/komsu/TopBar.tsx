@@ -16,7 +16,8 @@ export function TopBar() {
 
   return (
     <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
-      <div className="mx-auto flex max-w-[1140px] items-center gap-3 px-4 py-3">
+      <div className="mx-auto flex max-w-[480px] items-center gap-2 px-4 py-3">
+
         <p className="flex min-w-0 items-center gap-2 text-base font-medium">
           <span aria-hidden="true">📍</span>
           <span className="truncate">Fıstıkağacı Mah.</span>
@@ -44,9 +45,9 @@ export function TopBar() {
           </Button>
           <Link
             to="/dogrulama"
-            className="touch-target inline-flex items-center justify-center rounded-xl border border-border px-4 text-base font-medium hover:bg-muted"
+            className="touch-target inline-flex items-center justify-center rounded-xl border border-border px-3 text-sm font-medium hover:bg-muted"
           >
-            Doğrulama
+            Doğrula
           </Link>
         </div>
       </div>
@@ -57,10 +58,11 @@ export function TopBar() {
 export function HelpFab() {
   return (
     <button
-      className="fixed right-5 bottom-5 z-40 h-14 w-14 rounded-full bg-primary text-2xl font-bold text-primary-foreground shadow-lg transition-transform hover:scale-105"
+      className="fixed right-4 bottom-24 z-40 h-14 w-14 rounded-full bg-primary text-2xl font-bold text-primary-foreground shadow-lg transition-transform hover:scale-105"
       aria-label="Yardım iste: sesli okuma, yazı büyütme, komşudan yardım"
     >
       <span aria-hidden="true">?</span>
     </button>
+
   );
 }
