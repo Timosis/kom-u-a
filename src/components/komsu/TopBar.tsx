@@ -45,9 +45,9 @@ export function TopBar() {
           </Button>
           <Link
             to="/dogrulama"
-            className="touch-target inline-flex items-center justify-center rounded-xl border border-border px-4 text-base font-medium hover:bg-muted"
+            className="touch-target inline-flex items-center justify-center rounded-xl border border-border px-3 text-sm font-medium hover:bg-muted"
           >
-            Doğrulama
+            Doğrula
           </Link>
         </div>
       </div>
@@ -58,10 +58,11 @@ export function TopBar() {
 export function HelpFab() {
   return (
     <button
-      className="fixed right-5 bottom-5 z-40 h-14 w-14 rounded-full bg-primary text-2xl font-bold text-primary-foreground shadow-lg transition-transform hover:scale-105"
+      className="fixed right-4 bottom-24 z-40 h-14 w-14 rounded-full bg-primary text-2xl font-bold text-primary-foreground shadow-lg transition-transform hover:scale-105"
       aria-label="Yardım iste: sesli okuma, yazı büyütme, komşudan yardım"
     >
       <span aria-hidden="true">?</span>
     </button>
+
   );
 }
