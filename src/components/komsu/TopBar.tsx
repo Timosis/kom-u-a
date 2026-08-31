@@ -16,7 +16,8 @@ export function TopBar() {
 
   return (
     <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
-      <div className="mx-auto flex max-w-[1140px] items-center gap-3 px-4 py-3">
+      <div className="mx-auto flex max-w-[480px] items-center gap-2 px-4 py-3">
+
         <p className="flex min-w-0 items-center gap-2 text-base font-medium">
           <span aria-hidden="true">📍</span>
           <span className="truncate">Fıstıkağacı Mah.</span>
