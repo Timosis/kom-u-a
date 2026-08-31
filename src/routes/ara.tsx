@@ -22,7 +22,7 @@ export const Route = createFileRoute("/ara")({
       },
     ],
   }),
-  component: SearchScreen;
+  component: SearchScreen,
 });
 
 const suggestions = ["matkap", "merdiven", "market", "bisiklet", "çocuk bakımı", "toplantı"];

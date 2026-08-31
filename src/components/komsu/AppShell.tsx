@@ -19,7 +19,7 @@ export function AppShell({
   className?: string;
 }) {
   return (
-    <div className="mx-auto flex h-dvh max-w-[480px] flex-col overflow-hidden bg-background">
+    <div className="relative mx-auto flex h-dvh max-w-[480px] flex-col overflow-hidden bg-background">
       {header}
       <main
         className={cn(

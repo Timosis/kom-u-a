@@ -100,7 +100,7 @@ function IconButton({
 export function HelpFab() {
   return (
     <button
-      className="pressable fixed right-4 bottom-[calc(84px+env(safe-area-inset-bottom))] z-40 h-14 w-14 rounded-full bg-primary text-2xl font-bold text-primary-foreground shadow-lg"
+      className="pressable absolute right-4 bottom-[calc(84px+env(safe-area-inset-bottom))] z-40 h-14 w-14 rounded-full bg-primary text-2xl font-bold text-primary-foreground shadow-lg"
       aria-label="Yardım iste: sesli okuma, yazı büyütme, komşudan yardım"
     >
       <span aria-hidden="true">?</span>
