@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { FeedCard } from "@/components/komsu/FeedCard";
 import { HelpFab, TopBar } from "@/components/komsu/TopBar";
+import { BottomNav } from "@/components/komsu/BottomNav";
 import { Button, type FeedType } from "@/components/komsu/primitives";
 import { feedItems, quickActions, urgentNeeds } from "@/components/komsu/data";
 import { cn } from "@/lib/utils";
@@ -41,7 +42,7 @@ function Dashboard() {
     <div className="min-h-screen bg-background">
       <TopBar />
 
-      <main className="mx-auto max-w-[1140px] px-4 pb-24">
+      <main className="mx-auto max-w-[480px] px-4 pb-32">
         {/* Selam bandı */}
         <section className="mt-6 rounded-2xl border border-border bg-card p-6">
           <h1 className="font-display text-3xl leading-tight font-bold text-card-foreground">
@@ -58,7 +59,7 @@ function Dashboard() {
           <h2 id="hizli" className="sr-only">
             Hızlı aksiyonlar
           </h2>
-          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3">
             {quickActions.map((a) => (
               <button
                 key={a.label}
@@ -83,7 +84,7 @@ function Dashboard() {
             {urgentNeeds.map((u) => (
               <div
                 key={u.title}
-                className="w-[280px] shrink-0 snap-start rounded-2xl border border-l-4 border-border border-l-accent bg-card p-4"
+                className="w-[260px] shrink-0 snap-start rounded-2xl border border-l-4 border-border border-l-accent bg-card p-4"
               >
                 <p className="font-semibold text-card-foreground">{u.title}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{u.meta}</p>
@@ -100,7 +101,7 @@ function Dashboard() {
           <h2 id="akis" className="font-display text-2xl font-semibold">
             Mahalle panosu
           </h2>
-          <div role="tablist" aria-label="Akış filtresi" className="mt-3 flex flex-wrap gap-2">
+          <div role="tablist" aria-label="Akış filtresi" className="mt-3 -mx-4 flex snap-x gap-2 overflow-x-auto px-4 pb-1">
             {tabs.map((t) => (
               <button
                 key={t.key}
@@ -108,7 +109,7 @@ function Dashboard() {
                 aria-selected={tab === t.key}
                 onClick={() => setTab(t.key)}
                 className={cn(
-                  "touch-target rounded-xl border px-5 text-base font-medium transition-colors",
+                  "touch-target shrink-0 snap-start rounded-xl border px-5 text-base font-medium transition-colors",
                   tab === t.key
                     ? "border-primary bg-primary text-primary-foreground"
                     : "border-border bg-card hover:bg-muted",
@@ -126,7 +127,7 @@ function Dashboard() {
               <Button className="mt-4">Paylaşım yap</Button>
             </div>
           ) : (
-            <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-5 grid gap-4">
               {items.map((item) => (
                 <FeedCard key={item.id} item={item} />
               ))}
@@ -136,6 +137,7 @@ function Dashboard() {
       </main>
 
       <HelpFab />
+      <BottomNav />
     </div>
   );
 }
