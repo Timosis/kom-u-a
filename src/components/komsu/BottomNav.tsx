@@ -3,10 +3,11 @@ import { cn } from "@/lib/utils";
 
 const items = [
   { to: "/", icon: "🏠", label: "Pano" },
-  { to: "/", icon: "🔍", label: "Ara" },
-  { to: "/", icon: "➕", label: "Paylaş" },
+  { to: "/ara", icon: "🔍", label: "Ara" },
+  { to: "/paylas", icon: "➕", label: "Paylaş", center: true },
   { to: "/dogrulama", icon: "🛡️", label: "Doğrula" },
-];
+  { to: "/profil", icon: "👤", label: "Profil" },
+] as const;
 
 export function BottomNav() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -14,22 +15,29 @@ export function BottomNav() {
   return (
     <nav
       aria-label="Ana gezinme"
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-card/95 backdrop-blur"
+      className="safe-bottom sticky bottom-0 z-40 shrink-0 border-t border-border bg-card/95 backdrop-blur"
     >
-      <ul className="mx-auto flex max-w-[480px] items-stretch justify-between px-2 pb-[env(safe-area-inset-bottom)]">
-        {items.map((item, i) => {
-          const active = pathname === item.to && (item.to !== "/" || i === 0);
+      <ul className="flex items-stretch justify-between px-1">
+        {items.map((item) => {
+          const active = pathname === item.to;
           return (
             <li key={item.label} className="flex-1">
               <Link
                 to={item.to}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "flex min-h-[60px] flex-col items-center justify-center gap-1 rounded-xl py-1 text-xs font-medium transition-colors",
-                  active ? "text-primary" : "text-muted-foreground hover:text-foreground",
+                  "pressable flex min-h-[62px] flex-col items-center justify-center gap-0.5 rounded-2xl py-1.5 text-[0.68rem] font-medium",
+                  active ? "text-primary" : "text-muted-foreground",
                 )}
               >
-                <span aria-hidden="true" className="text-xl">
+                <span
+                  aria-hidden="true"
+                  className={cn(
+                    "flex h-9 w-9 items-center justify-center rounded-full text-xl transition-colors",
+                    item.center && "bg-primary text-primary-foreground shadow-md",
+                    !item.center && active && "bg-primary/12",
+                  )}
+                >
                   {item.icon}
                 </span>
                 {item.label}
