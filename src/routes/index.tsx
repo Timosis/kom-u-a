@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { FeedCard } from "@/components/komsu/FeedCard";
-import { HelpFab, TopBar } from "@/components/komsu/TopBar";
-import { BottomNav } from "@/components/komsu/BottomNav";
+import { TopBar } from "@/components/komsu/TopBar";
+import { AppShell } from "@/components/komsu/AppShell";
 import { Button, type FeedType } from "@/components/komsu/primitives";
 import { feedItems, quickActions, urgentNeeds } from "@/components/komsu/data";
 import { cn } from "@/lib/utils";
@@ -39,10 +39,7 @@ function Dashboard() {
   const items = tab === "tumu" ? feedItems : feedItems.filter((i) => i.type === tab);
 
   return (
-    <div className="min-h-screen bg-background">
-      <TopBar />
-
-      <main className="mx-auto max-w-[480px] px-4 pb-32">
+    <AppShell header={<TopBar />}>
         {/* Selam bandı */}
         <section className="mt-6 rounded-2xl border border-border bg-card p-6">
           <h1 className="font-display text-3xl leading-tight font-bold text-card-foreground">
@@ -134,10 +131,6 @@ function Dashboard() {
             </div>
           )}
         </section>
-      </main>
-
-      <HelpFab />
-      <BottomNav />
-    </div>
+    </AppShell>
   );
 }

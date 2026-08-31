@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { HelpFab, TopBar } from "@/components/komsu/TopBar";
-import { BottomNav } from "@/components/komsu/BottomNav";
+import { ScreenHeader } from "@/components/komsu/TopBar";
+import { AppShell } from "@/components/komsu/AppShell";
 import { Button } from "@/components/komsu/primitives";
 import { cn } from "@/lib/utils";
 
@@ -73,9 +73,7 @@ function Verification() {
   const current = steps[step]!;
 
   return (
-    <div className="min-h-screen bg-background">
-      <TopBar />
-      <main className="mx-auto max-w-[480px] px-4 pt-6 pb-32">
+    <AppShell header={<ScreenHeader title="Mahalle doğrulama" subtitle="Güvenli komşuluk için 5 adım" />} className="pt-6">
         <p className="text-sm font-medium text-muted-foreground">
           Adım {step + 1} / {total}
         </p>
@@ -160,9 +158,6 @@ function Verification() {
           <span aria-hidden="true">🔒</span> Konum verin yalnızca mahalle eşleşmesi için kullanılır,
           komşularla paylaşılmaz. Doğrulamayı istediğin an ayarlardan geri alabilirsin.
         </p>
-      </main>
-      <HelpFab />
-      <BottomNav />
-    </div>
+    </AppShell>
   );
 }
