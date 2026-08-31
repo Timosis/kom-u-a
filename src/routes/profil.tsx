@@ -82,10 +82,10 @@ function ProfileScreen() {
       </section>
 
       <Link
-        to="/dogrulama"
+        to="/kayit"
         className="pressable mt-6 flex min-h-[60px] items-center justify-center rounded-2xl bg-primary px-5 font-semibold text-primary-foreground"
       >
-        Doğrulama durumunu gör
+        Mahalle bilgilerini güncelle
       </Link>
     </AppShell>
   );
