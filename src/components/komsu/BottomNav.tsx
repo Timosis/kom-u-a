@@ -1,13 +1,13 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 
-const items = [
+const items: { to: "/" | "/ara" | "/paylas" | "/dogrulama" | "/profil"; icon: string; label: string; center?: boolean }[] = [
   { to: "/", icon: "🏠", label: "Pano" },
   { to: "/ara", icon: "🔍", label: "Ara" },
   { to: "/paylas", icon: "➕", label: "Paylaş", center: true },
   { to: "/dogrulama", icon: "🛡️", label: "Doğrula" },
   { to: "/profil", icon: "👤", label: "Profil" },
-] as const;
+];
 
 export function BottomNav() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
